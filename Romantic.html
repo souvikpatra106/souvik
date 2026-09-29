@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  min-height:100vh;display:flex;justify-content:center;align-items:center;
+  overflow:hidden
+}
+.container{
+  width:90%;max-width:600px;background:rgba(255,255,255,.95);
+  border-radius:25px;padding:35px 25px;text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,.25);position:relative;z-index:2
+}
+.heart{font-size:65px;animation:beat 1s infinite}
+@keyframes beat{50%{transform:scale(1.25)}}
+h1{color:#e91e63;margin:15px 0;font-size:32px}
+h2{color:#444;margin-bottom:15px}
+.message{color:#555;line-height:1.8;font-size:17px;margin:20px 0}
+.buttons{margin-top:25px}
+button{
+  border:0;padding:13px 28px;border-radius:30px;font-size:17px;
+  cursor:pointer;margin:8px;transition:.3s
+}
+.yes{background:#e91e63;color:white}
+.yes:hover{transform:scale(1.1);background:#c2185b}
+.no{background:#ddd;color:#333;position:relative}
+#answer{margin-top:25px;font-size:21px;color:#e91e63;font-weight:bold}
+.floating-heart{
+  position:absolute;bottom:-30px;font-size:25px;
+  animation:float 6s linear infinite
+}
+@keyframes float{
+  0%{transform:translateY(0);opacity:1}
+  100%{transform:translateY(-130vh);opacity:0}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="heart">❤️</div>
+  <h1>For My Special Person</h1>
+  <h2>তোমার জন্য একটা কথা আছে... 💌</h2>
+  <p class="message">
+    <!-- জানি না কথাটা কীভাবে বলব...
+    কিন্তু তোমার সাথে কথা বললেই আমার মুখে হাসি চলে আসে।
+    তুমি আমার কাছে সত্যিই খুব special। ❤️
+    <br><br>
+    তাই আজ সাহস করে একটা প্রশ্ন করছি...
+    <br><br> -->
+    <b>Will You Marry Me? 💖</b>
+  </p>
+  <div class="buttons">
+    <button class="yes" onclick="sayYes()">YES ❤️</button>
+    <button class="no" onclick="moveNo()">NO 😜</button>
+  </div>
+  <div id="answer"></div>
+</div>
+<script>
+function sayYes(){
+  document.getElementById("answer").innerHTML=
+  "Yaaay! ❤️ আমি জানতাম তুমি Yes বলবে! কারন তুমি আমাকে ছাড়া থাকতেই পারবেনা । 🥰💖";
+}
+function moveNo(){
+  const button=document.querySelector(".no");
+  const x=Math.random()*250-125, y=Math.random()*200-100;
+  button.style.transform=`translate(${x}px,${y}px)`;
+}
+setInterval(function(){
+  const heart=document.createElement("div");
+  heart.className="floating-heart";
+  heart.innerHTML="❤️";
+  heart.style.left=Math.random()*100+"%";
+  heart.style.animationDuration=(3+Math.random()*4)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),7000);
+},500);
+</script>
+</body>
+</html>
